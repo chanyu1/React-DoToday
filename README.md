@@ -1,1 +1,1 @@
-# react-study-styling
+# study-react-styling
