@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 
-import CourseGoalList from "./components/CourseGoals/CourseGoalList/CourseGoalList";
-import CourseInput from "./components/CourseGoals/CourseInput/CourseInput";
+import CourseGoalList from "./components/CourseGoals/CourseGoalList";
+import CourseInput from "./components/CourseGoals/CourseInput";
 import "./App.css";
 
 const App = () => {
@@ -10,6 +10,7 @@ const App = () => {
   const addGoalHandler = (enteredText) => {
     setCourseGoals((prevGoals) => {
       const updatedGoals = [...prevGoals];
+      // Add a goal in front
       updatedGoals.unshift({ text: enteredText, id: Math.random().toString() });
       return updatedGoals;
     });
@@ -22,13 +23,12 @@ const App = () => {
     });
   };
 
-  let content = <p style={{ textAlign: "center" }}>No goals found.</p>;
-
-  if (courseGoals.length > 0) {
-    content = (
+  let content =
+    courseGoals.length > 0 ? (
       <CourseGoalList items={courseGoals} onDeleteItem={deleteItemHandler} />
+    ) : (
+      <p style={{ textAlign: "center" }}>No goals found</p>
     );
-  }
 
   return (
     <Fragment>
