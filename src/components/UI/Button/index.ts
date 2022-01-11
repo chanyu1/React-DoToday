@@ -2,7 +2,7 @@ import React from "react";
 
 import classes from "./style.module.css";
 
-const Button = ({ type, children }) => {
+const Button = ({ type: string, children }) => {
   return (
     <button type={type} className={classes.button}>
       {children}
