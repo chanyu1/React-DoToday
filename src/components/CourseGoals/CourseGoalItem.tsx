@@ -1,6 +1,6 @@
 import React from "react";
 
-import classes from "./style.module.css";
+import "./CourseGoalItem.css";
 
 const CourseGoalItem = ({ onDelete, id, children }) => {
   const deleteHandler = () => {
@@ -8,7 +8,7 @@ const CourseGoalItem = ({ onDelete, id, children }) => {
   };
 
   return (
-    <li className={`${classes["goal-item"]}`} onClick={deleteHandler}>
+    <li className={`${["goal-item"]}`} onClick={deleteHandler}>
       {children}
     </li>
   );
