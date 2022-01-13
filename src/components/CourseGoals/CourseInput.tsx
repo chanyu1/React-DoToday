@@ -25,9 +25,10 @@ const CourseInput = (props) => {
   return (
     <form onSubmit={formSubmitHandler}>
       <div className={`form-control ${!isValid && "invalid"}`}>
-        <label>Course Goal</label>
+        <label htmlFor="text">Course Goal</label>
         <input
           type="text"
+          id="text"
           value={enteredValue}
           onChange={goalInputChangeHandler}
         />
