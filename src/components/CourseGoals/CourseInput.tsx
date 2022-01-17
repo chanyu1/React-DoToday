@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import Button from "../UI/Button";
 import "./CourseInput.css";
 
-const CourseInput = (props) => {
+const CourseInput: React.FC<{ onAddGoal: (text: string) => void }> = (
+  props
+) => {
+  const goalTextInputRef = useRef<HTMLInputElement>(null);
   const [enteredValue, setEnteredValue] = useState("");
   const [isValid, setIsValid] = useState(true);
 
@@ -12,14 +15,15 @@ const CourseInput = (props) => {
     setEnteredValue(event.target.value);
   };
 
-  const formSubmitHandler = (event) => {
+  const formSubmitHandler = (event: React.FormEvent) => {
     event.preventDefault();
-    if (enteredValue.trim().length === 0) {
-      setIsValid(false);
+    const enteredText = goalTextInputRef.current!.value;
+    if (enteredText.trim().length === 0) {
+      // setIsValid(false);
       return;
     }
-    props?.onAddGoal(enteredValue);
-    setEnteredValue("");
+    props.onAddGoal(enteredText);
+    // setEnteredValue("");
   };
 
   return (

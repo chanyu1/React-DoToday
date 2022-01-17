@@ -46,7 +46,7 @@ const App = () => {
         {/* <CourseInput onAddGoal={addGoalHandler} /> */}
         <NewGoal onAddGoal={addGoalHandler} />
       </section>
-      {/* <Goals id="goals">{content}</Goals> */}
+      <Goals items={goals} />
       {/* <section id="goals">{content}</section> */}
     </Fragment>
   );

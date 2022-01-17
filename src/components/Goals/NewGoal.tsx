@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 
 import Button from "../UI/Button";
-import classes from "./NewGoal.module.css";
+// import classes from "./NewGoal.module.css";
 
 const NewGoal: React.FC<{ onAddGoal: (text: string) => void }> = (props) => {
   const goalTextInputRef = useRef<HTMLInputElement>(null);
@@ -13,7 +13,7 @@ const NewGoal: React.FC<{ onAddGoal: (text: string) => void }> = (props) => {
   //   setEnteredValue(event.target.value);
   // };
 
-  const formSubmitHandler = (event: React.FormEvent) => {
+  const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
     const enteredText = goalTextInputRef.current!.value;
     if (enteredText.trim().length === 0) {
@@ -23,14 +23,16 @@ const NewGoal: React.FC<{ onAddGoal: (text: string) => void }> = (props) => {
   };
 
   return (
-    <form onSubmit={formSubmitHandler}>
-      <div className={`form-control ${!isValid && "invalid"}`}>
+    <form onSubmit={submitHandler}>
+      <div className={`form-control invalid}`}>
+        {/* <div className={`form-control ${!isValid && "invalid"}`}> */}
         <label htmlFor="text">Course Goal</label>
         <input
           type="text"
           id="text"
-          value={enteredValue}
-          onChange={goalInputChangeHandler}
+          ref={goalTextInputRef}
+          // value={enteredValue}
+          // onChange={goalInputChangeHandler}
         />
       </div>
       <Button type="submit">Add Goal</Button>
