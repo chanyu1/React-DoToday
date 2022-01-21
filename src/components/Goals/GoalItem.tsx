@@ -1,6 +1,6 @@
 import React from "react";
 
-// import "./CourseGoalItem.css";
+import classes from "./GoalItem.module.css";
 
 // const GoalItem = ({ onDelete, id, children }) => {
 const GoalItem: React.FC<{ text: string }> = (props) => {
@@ -9,7 +9,7 @@ const GoalItem: React.FC<{ text: string }> = (props) => {
   // };
 
   return (
-    <li className={`${["goal-item"]}`}>
+    <li className={classes.item}>
       {/* <li className={`${["goal-item"]}`} onClick={deleteHandler}> */}
       {props.text}
     </li>
