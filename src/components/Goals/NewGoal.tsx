@@ -1,12 +1,12 @@
 import React, { useState, useRef } from "react";
 
 import Button from "../UI/Button";
-// import classes from "./NewGoal.module.css";
+import classes from "./NewGoal.module.css";
 
 const NewGoal: React.FC<{ onAddGoal: (text: string) => void }> = (props) => {
   const goalTextInputRef = useRef<HTMLInputElement>(null);
   // const [enteredValue, setEnteredValue] = useState("");
-  // const [isValid, setIsValid] = useState(true);
+  const [isValid, setIsValid] = useState(true);
 
   // const goalInputChangeHandler = (event) => {
   //   event.target.value.trim().length > 0 && setIsValid(true);
@@ -24,7 +24,9 @@ const NewGoal: React.FC<{ onAddGoal: (text: string) => void }> = (props) => {
 
   return (
     <form onSubmit={submitHandler}>
-      <div className={`form-control invalid}`}>
+      <div
+        className={`${classes["form-control"]} ${!isValid && classes.invalid}`}
+      >
         {/* <div className={`form-control ${!isValid && "invalid"}`}> */}
         <label htmlFor="text">Course Goal</label>
         <input
