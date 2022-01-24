@@ -1,9 +1,13 @@
 import React from "react";
 
-import "./Button.css";
+import classes from "./Button.module.css";
 
-const Button = ({ type, children }) => {
-  return <button type={type}>{children}</button>;
+const Button: React.FC<{ type: any }> = (props) => {
+  return (
+    <button className={classes.button} type={props.type}>
+      {props.children}
+    </button>
+  );
 };
 
 export default Button;
