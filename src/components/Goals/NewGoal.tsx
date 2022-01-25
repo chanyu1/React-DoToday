@@ -1,10 +1,12 @@
-import React, { useRef } from "react";
+import React, { useRef, useContext } from "react";
 
+import { GoalsContext } from "../store/goals-context";
 import Button from "../UI/Button";
 import classes from "./NewGoal.module.css";
 
-const NewGoal: React.FC<{ onAddGoal: (text: string) => void }> = (props) => {
+const NewGoal: React.FC = () => {
   const goalTextInputRef = useRef<HTMLInputElement>(null);
+  const goalsCtx = useContext(GoalsContext);
 
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
@@ -12,7 +14,7 @@ const NewGoal: React.FC<{ onAddGoal: (text: string) => void }> = (props) => {
     if (enteredText.trim().length === 0) {
       return;
     }
-    props.onAddGoal(enteredText);
+    goalsCtx.addGoal(enteredText);
   };
 
   return (
