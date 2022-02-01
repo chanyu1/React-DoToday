@@ -9,13 +9,17 @@ const Goals: React.FC = () => {
 
   return (
     <ul className={classes.goals}>
-      {goalsCtx.items.map((item) => (
-        <GoalItem
-          key={item.id}
-          text={item.text}
-          onRemoveGoal={goalsCtx.removeGoal.bind(null, item.id)}
-        />
-      ))}
+      {goalsCtx.items.length > 0 ? (
+        goalsCtx.items.map((item) => (
+          <GoalItem
+            key={item.id}
+            text={item.text}
+            onRemoveGoal={goalsCtx.removeGoal.bind(null, item.id)}
+          />
+        ))
+      ) : (
+        <p style={{ textAlign: "center" }}>No goals found</p>
+      )}
     </ul>
   );
 };

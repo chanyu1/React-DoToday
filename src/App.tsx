@@ -4,13 +4,6 @@ import GoalsContextProvider from "./components/store/goals-context";
 import "./App.css";
 
 const App = () => {
-  // let content =
-  //   goals.length > 0 ? (
-  //     <Goals />
-  //   ) : (
-  //     <p style={{ textAlign: "center" }}>No goals found</p>
-  //   );
-
   return (
     <GoalsContextProvider>
       <NewGoal />

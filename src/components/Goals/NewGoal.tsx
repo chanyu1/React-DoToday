@@ -22,8 +22,8 @@ const NewGoal: React.FC = () => {
       <div className={classes["form-control"]}>
         <label htmlFor="text">Do Today</label>
         <input type="text" id="text" ref={goalTextInputRef} />
+        <Button type="submit">Add Goal</Button>
       </div>
-      <Button type="submit">Add Goal</Button>
     </form>
   );
 };

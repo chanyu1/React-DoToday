@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
-import Goal from "../models/goal";
-
-// const Goal = require("../models/goal");
+import Goal from "../../models/goal";
 
 type GoalsContextObj = {
   items: Goal[];
@@ -13,7 +11,7 @@ type GoalsContextObj = {
 export const GoalsContext = React.createContext<GoalsContextObj>({
   items: [],
   addGoal: () => {},
-  removeGoal: (id: string) => {},
+  removeGoal: () => {},
 });
 
 const GoalsContextProvider: React.FC = (props) => {
